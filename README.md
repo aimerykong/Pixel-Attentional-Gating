@@ -28,8 +28,18 @@ models or dynamically skipping whole layers).  Generally, we observe PAG can
 reduce computation by $10\%$ without noticeable loss in accuracy and
 performance degrades gracefully when imposing stronger computational constraints.
 
-**keywords** Spatial Attention, Dynamic Computation, Per-Pixel Labeling, Semantic
+**Keywords** Spatial Attention, Dynamic Computation, Per-Pixel Labeling, Semantic
 Segmentation, Monocular Depth, Surface Normal, Boundary Detection.
+
+
+Several demos are included as below.
+As for details on the training, demo and code, please go into each demo folder.
+
+
+
+Please download those models from the [google drive](https://drive.google.com/drive/folders/XXXXXXX).
+
+
 
 
 
@@ -61,7 +71,7 @@ If you find our model/method/dataset useful, please cite our work ([draft at arx
 
 
 
-last update: 03/13/2018
+last update: 03/20/2018
 
 Shu Kong
 
