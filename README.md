@@ -25,7 +25,7 @@ performance on these tasks.  Our experiments show that PAG learns dynamic
 spatial allocation of computation over the input image which provides better
 performance trade-offs compared to related approaches (e.g., truncating deep
 models or dynamically skipping whole layers).  Generally, we observe PAG can
-reduce computation by $10\%$ without noticeable loss in accuracy and
+reduce computation by 10% without noticeable loss in accuracy and
 performance degrades gracefully when imposing stronger computational constraints.
 
 **Keywords** Spatial Attention, Dynamic Computation, Per-Pixel Labeling, Semantic
