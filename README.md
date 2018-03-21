@@ -59,6 +59,7 @@ vl_compilenn('enableGpu', true, ...
 
 ```
 
+See also [Recurrent Scene Parsing with Perspective Understanding in-the Loop](https://github.com/aimerykong/Recurrent-Scene-Parsing-with-Perspective-Understanding-in-the-loop) which adapts depth map for pooling field selection.
 
 If you find our model/method/dataset useful, please cite our work ([draft at arxiv](https://arxiv.org/abs/XXXXXX)):
 
