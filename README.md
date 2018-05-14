@@ -1,6 +1,8 @@
 # Pixel-wise Attentional Gating for Parsimonious Pixel Labeling
 
-For paper, slides and poster, please refer to our [project page](http://www.ics.uci.edu/~skong2/PAG.html "pixel-attentional-gating")
+For [paper](https://arxiv.org/abs/1805.01556) and [slides](https://www.ics.uci.edu/~skong2/slides/20180514_AIML_UCI.pdf), please refer to our [project page](http://www.ics.uci.edu/~skong2/PAG.html "pixel-attentional-gating")
+
+Our entry to Robust Vision Challenge can be found [here](http://www.robustvision.net/leaderboard.php?benchmark=depth).
 
 
 ![alt text](http://www.ics.uci.edu/~skong2/image/PAG_splashFigure.png "visualization")
@@ -33,11 +35,11 @@ Segmentation, Monocular Depth, Surface Normal, Boundary Detection.
 
 
 Several demos are included as below.
-As for details on the training, demo and code, please go into each demo folder.
+As for details on the training, demo and code, please go into each demo folder. [!!TODO!!]
 
 
 
-Please download those models from the [google drive](https://drive.google.com/drive/folders/XXXXXXX).
+Please download those models from the [google drive](https://drive.google.com/drive/folders/XXXXXXX) [!!TODO!!].
 
 
 
@@ -61,12 +63,12 @@ vl_compilenn('enableGpu', true, ...
 
 See also [Recurrent Scene Parsing with Perspective Understanding in-the Loop](https://github.com/aimerykong/Recurrent-Scene-Parsing-with-Perspective-Understanding-in-the-loop) which adapts depth map for pooling field selection.
 
-If you find our model/method/dataset useful, please cite our work ([draft at arxiv](https://arxiv.org/abs/XXXXXX)):
+If you find our model/method/dataset useful, please cite our work ([draft at arxiv](https://arxiv.org/abs/1805.01556)):
 
     @inproceedings{kong2018pag,
       title={Pixel-wise Attentional Gating for Parsimonious Pixel Labeling},
       author={Kong, Shu and Fowlkes, Charless},
-      booktitle={arxiv},
+      booktitle={arxiv 1805.01556},
       year={2018}
     }
 
