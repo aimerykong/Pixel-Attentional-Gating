@@ -38,6 +38,21 @@ netbasemodel.move('gpu');
 netbasemodel.mode = 'test' ;
 % netMat.mode = 'normal' ;
 netbasemodel.conserveMemory = 1;
+
+attentionLayerName = {};
+for i = 1:length(netbasemodel.layers)
+    if ~isempty(strfind(netbasemodel.layers(i).name, '_AttentionSoftmax'))
+        disp(netbasemodel.layers(i).name)
+        netbasemodel.vars(netbasemodel.layers(netbasemodel.getLayerIndex(netbasemodel.layers(i).name)).outputIndexes).precious = 1;
+        attentionLayerName = [netbasemodel.layers(i).name, attentionLayerName];
+    elseif (length(netbasemodel.layers(i).name)>length('_attentionProb') ...
+            && ~isempty(strfind(netbasemodel.layers(i).name(end-length('_attentionProb')+1:end), '_attentionProb'))) || ...
+        ~isempty(strfind(netbasemodel.layers(i).name, '_AttentionSoftmax'))
+        disp(netbasemodel.layers(i).name)
+        netbasemodel.vars(netbasemodel.layers(netbasemodel.getLayerIndex(netbasemodel.layers(i).name)).outputIndexes).precious = 1;
+        attentionLayerName{end+1} = netbasemodel.layers(i).name;
+    end
+end
 %% test res2
 imlist = dir('./valimages/val*rgb.png');
 setName = 'val'; % train val
@@ -61,7 +76,7 @@ for testImgIdx = 1:length(imlist)
     a = sqrt(sum(cur_normal.^2,3));
     normalMask = (a<1.1 & a>0.8);
     cur_normal_fliplr = fliplr(cur_normal); cur_normal_fliplr(:,:,1) = -1*cur_normal_fliplr(:,:,1);
-    
+    sz = size(cur_image); sz = sz(1:2);
     
     fprintf('image-%03d %s ... \n', testImgIdx, cur_path_to_image);
     imFeed = bsxfun(@minus, cur_image, mean_rgb);        
@@ -71,9 +86,22 @@ for testImgIdx = 1:length(imlist)
         
     netbasemodel.eval({'data', gpuArray(fliplr(imFeed))}) ;
     pred_normal_fliplr = gather(netbasemodel.vars(netbasemodel.layers(netbasemodel.getLayerIndex(layerTop)).outputIndexes).value);
-        
     
     fprintf(' done!\n');
+    
+    subWinNum = 0;
+    attentionWeightsList = {};
+    attentionMapList = {};
+    for aa = 1:length(attentionLayerName)
+        attentionWeightsList{end+1} = netbasemodel.vars(netbasemodel.layers(netbasemodel.getLayerIndex(attentionLayerName{aa})).outputIndexes).value;
+        attentionWeightsList{end} = imresize(attentionWeightsList{end}, sz);
+        [A, attentionMapList{end+1}] = max(attentionWeightsList{end},[],3);
+        if size(attentionWeightsList{end},3)==2
+            subWinNum = subWinNum + 1;
+        else
+            subWinNum = subWinNum + size(attentionWeightsList{end},3);
+        end
+    end
     %% visualization    
     cur_annot_color = imdb.meta.mapping_id2color(cur_annot(:)+1, :);
     cur_annot_color = reshape(cur_annot_color, [size(cur_annot,1), size(cur_annot,2), 3]);
@@ -112,14 +140,38 @@ for testImgIdx = 1:length(imlist)
     imagesc(cur_normal_fliplr/2+0.5); title(sprintf('gtNormalFlipLR')); axis off image;
     
     subplot(subWindowH, subWindowW, windowID); windowID = windowID + 1;
-    imagesc(pred_normal_fliplr/2+0.5); title(sprintf('estNormalFlipLR')); axis off image;
-    
-    
+    imagesc(pred_normal_fliplr/2+0.5); title(sprintf('estNormalFlipLR')); axis off image;    
+    %% save normal prediction
     if flagSaveFig && ~isdir(saveFolder)
         mkdir(saveFolder);
     end
     if flagSaveFig
         export_fig( sprintf('%s/valImgId%04d.jpg', saveFolder, testImgIdx) );
+    end
+    %% visualize and save dynamic computing maps    
+    imgFig2 = figure(2);
+    subWindowH = 5; 
+    subWindowW = 4;
+    windowID = 1;    
+    set(imgFig2, 'Position', [10 100 1500 900]) % [1 1 width height]
+    ponderMap = 0;
+    for aa = 1:length(attentionLayerName)
+        subplot(subWindowH, subWindowW, windowID); windowID = windowID + 1;
+        imagesc(attentionMapList{aa}); axis off image;
+        if ~isempty(strfind(attentionLayerName{aa},'_attentionProb'))
+            caxis([1,2]); % colorbar;
+            ponderMap = ponderMap + attentionMapList{aa};
+        else
+            caxis([1,size(attentionWeightsList{aa},3)]); % colorbar;
+        end
+        title(sprintf('%s',attentionLayerName{aa}), 'Interpreter', 'None');
+    end
+    subplot(subWindowH, subWindowW, windowID); windowID = windowID + 1;
+    imagesc(ponderMap); axis off image; 
+    title('accumulated ponder map');
+        
+    if flagSaveFig
+        export_fig( sprintf('%s/valImgId%04d_dynamicCompMap.jpg', saveFolder, testImgIdx) );
     end
 end
 %% leaving blank
