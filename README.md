@@ -37,7 +37,7 @@ Segmentation, Monocular Depth, Surface Normal, Boundary Detection.
 Several demos are included as below.
 As for details on the training, demo and code, please go into each demo folder.
 
-1. demo1: [Panoramic Surface Normal Estimation](https://github.com/aimerykong/Pixel-Attentional-Gating/tree/master/demo1_Panoramic_Surface_Normal)  [[**Ready**]]
+1. demo1: [Panoramic Surface Normal Estimation](https://github.com/aimerykong/Pixel-Attentional-Gating/tree/master/demo1_Panoramic_Surface_Normal)  [**Ready**]
 
 2. demo2: Boundary Detection [[!!!TOOD!!!]]
 
