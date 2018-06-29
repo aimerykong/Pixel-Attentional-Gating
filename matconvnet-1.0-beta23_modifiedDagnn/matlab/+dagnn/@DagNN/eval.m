@@ -120,7 +120,7 @@ obj.numPendingParamRefs = zeros(1, numel(obj.params)) ;
 for l = fliplr(obj.executionOrder)
     time = tic ;
 %     if l == 199
-%         disp(obj.layers(l))
+%         disp(obj.layers(l).name)
 %     end
     if l >= backPropLayerAbove
         obj.layers(l).block.backwardAdvanced(obj.layers(l)) ;

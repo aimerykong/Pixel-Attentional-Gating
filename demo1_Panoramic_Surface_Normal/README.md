@@ -5,40 +5,17 @@ For paper, slides and poster, please refer to our [project page](http://www.ics.
 
 ![alt text](http://www.ics.uci.edu/~skong2/image/PAG_splashFigure.png "visualization")
 
+Tracking the following scripts provides a good way to understand how to run/train/test models.
 
-To achieve parsimonious inference in per-pixel labeling tasks with a limited
-computational budget, we propose a **Pixel-wise Attentional Gating** unit
-(**PAG**) that learns to selectively process a subset of spatial
-locations at each layer of a deep convolutional network.  PAG is a generic,
-architecture-independent, problem-agnostic mechanism that can be readily
-``plugged in'' to an existing model with fine-tuning.  We utilize PAG in two
-ways: 1) learning spatially varying pooling fields that improve model
-performance without the extra computation cost associated with multi-scale
-pooling, and 2) learning a dynamic computation policy for each pixel to
-decrease total computation while maintaining accuracy.
+1. 'main000_calibrateNormal_train.m' and 'main000_calibrateNormal_val.m' show how to calibrate the panoramic surface normal in an interactive manner. Please refer to appendix of our arxiv paper for details, with script 'main000_understanding.m' that shows why it works.
 
+2. 'main001_demo_visualize.m' reads a demo model and pass through a few demo images for visualization. The model is able to allocate dynamic computation to all pixels of an image. Please download the model through the goolge link listed below.
 
-We extensively evaluate PAG on a variety of per-pixel labeling tasks, including
-semantic segmentation, boundary detection, monocular depth and surface normal
-estimation.  We demonstrate that PAG allows competitive or state-of-the-art
-performance on these tasks.  Our experiments show that PAG learns dynamic
-spatial allocation of computation over the input image which provides better
-performance trade-offs compared to related approaches (e.g., truncating deep
-models or dynamically skipping whole layers).  Generally, we observe PAG can
-reduce computation by 10% without noticeable loss in accuracy and
-performance degrades gracefully when imposing stronger computational constraints.
-
-**Keywords** Spatial Attention, Dynamic Computation, Per-Pixel Labeling, Semantic
-Segmentation, Monocular Depth, Surface Normal, Boundary Detection.
-
-
-Several demos are included as below.
-As for details on the training, demo and code, please go into each demo folder.
+3. 'main002_demo_train_Res5ScaleAttention_pG2345_p07.m' demonstrates how to train a model. If training, you need to prepare the 'imdb' structure that indicates the path of each image&annotation. 
 
 
 
-Please download those models from the [google drive](https://drive.google.com/drive/folders/XXXXXXX).
-
+Please download the demo model from the [google drive](https://drive.google.com/open?id=1VmwFLzxlstsoAaq0UrOsZZuLLVUJaCiN), and put it to path './model/main006normal_Res5ScaleAttention_pG2345_p07/softmax_net-epoch-140.mat'
 
 
 
@@ -48,7 +25,7 @@ MatConvNet is used in our project, and some functions are changed/added. Please 
 ```python
 LD_LIBRARY_PATH=/usr/local/cuda/lib64:local matlab 
 
-path_to_matconvnet = './libs/matconvnet-1.0-beta23_modifiedDagnn/';
+path_to_matconvnet = '../matconvnet-1.0-beta23_modifiedDagnn/';
 run(fullfile(path_to_matconvnet, 'matlab', 'vl_setupnn'));
 addpath(fullfile(path_to_matconvnet, 'matlab'));
 vl_compilenn('enableGpu', true, ...
@@ -71,7 +48,7 @@ If you find our model/method/dataset useful, please cite our work ([draft at arx
 
 
 
-last update: 03/20/2018
+last update: 06/28/2018
 
 Shu Kong
 
