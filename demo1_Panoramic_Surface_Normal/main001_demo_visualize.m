@@ -1,6 +1,7 @@
 %% add path and setup configuration
 clc; clear; close all;
 
+addpath(genpath('./scriptFolder'));
 addpath(genpath('../libs'));
 path_to_matconvnet = '../matconvnet-1.0-beta23_modifiedDagnn';
 run(fullfile(path_to_matconvnet, 'matlab', 'vl_setupnn'));

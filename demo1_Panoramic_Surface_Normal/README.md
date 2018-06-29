@@ -3,7 +3,7 @@
 For paper, slides and poster, please refer to our [project page](http://www.ics.uci.edu/~skong2/PAG.html "pixel-attentional-gating")
 
 
-![alt text](http://www.ics.uci.edu/~skong2/image/PAG_splashFigure.png "visualization")
+![alt text](https://github.com/aimerykong/Pixel-Attentional-Gating/blob/master/demo1_Panoramic_Surface_Normal/model/demo1_splashFig.png?raw=true "visualization")
 
 Tracking the following scripts provides a good way to understand how to run/train/test models.
 

@@ -35,11 +35,19 @@ Segmentation, Monocular Depth, Surface Normal, Boundary Detection.
 
 
 Several demos are included as below.
-As for details on the training, demo and code, please go into each demo folder. [!!TODO!!]
+As for details on the training, demo and code, please go into each demo folder.
+
+1. demo1: [Panoramic Surface Normal Estimation](https://github.com/aimerykong/Pixel-Attentional-Gating/tree/master/demo1_Panoramic_Surface_Normal)  [[**Ready**]]
+
+2. demo2: Boundary Detection [[!!!TOOD!!!]]
+
+3. demo3: Semantic Segmentation  [[!!!TOOD!!!]]
+
+4. demo4: Monocular Depth Estimation  [[!!!TOOD!!!]]
 
 
 
-Please download those models from the [google drive](https://drive.google.com/drive/folders/XXXXXXX) [!!TODO!!].
+Please download those models from the [google drive](https://drive.google.com/open?id=1dIjVTL5Q4s4Lviol7kzwkCda1p04GoK3).
 
 
 
@@ -50,7 +58,7 @@ MatConvNet is used in our project, and some functions are changed/added. Please 
 ```python
 LD_LIBRARY_PATH=/usr/local/cuda/lib64:local matlab 
 
-path_to_matconvnet = './libs/matconvnet-1.0-beta23_modifiedDagnn/';
+path_to_matconvnet = './matconvnet-1.0-beta23_modifiedDagnn/';
 run(fullfile(path_to_matconvnet, 'matlab', 'vl_setupnn'));
 addpath(fullfile(path_to_matconvnet, 'matlab'));
 vl_compilenn('enableGpu', true, ...
@@ -74,9 +82,13 @@ If you find our model/method/dataset useful, please cite our work ([draft at arx
 
 
 
-last update: 03/20/2018
+last update: 06/27/2018
 
 Shu Kong
 
 aimerykong At g-m-a-i-l dot com
+
+pag4ppl@gmail.com
+
+
 
