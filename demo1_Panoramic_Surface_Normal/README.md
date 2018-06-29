@@ -11,7 +11,7 @@ Tracking the following scripts provides a good way to understand how to run/trai
 
 2. 'main001_demo_visualize.m' reads a demo model and pass through a few demo images for visualization. The model is able to allocate dynamic computation to all pixels of an image. Please download the model through the goolge link listed below. [figFolder](https://github.com/aimerykong/Pixel-Attentional-Gating/tree/master/demo1_Panoramic_Surface_Normal/figFolder/main006normal_Res5ScaleAttention_pG2345_p07_softmax_net-epoch-140_visualization) stores such visualization images.
 
-3. 'main002_demo_train_Res5ScaleAttention_pG2345_p07.m' demonstrates how to train a model. If training, you need to prepare the 'imdb' structure that indicates the path of each image&annotation. 
+3. 'main002_demo_train_Res5ScaleAttention_pG2345_p07.m' demonstrates how to train a model. If training, you need to prepare the 'imdb' structure that indicates the path of each image&annotation. The name means 1) PAG is inserted to macro block 5 for spatially attentional gating, 2) PAG module is inserted to macro residual block 2~5 for dynamic computation  with hyper-parameter set to be 0.7.
 
 
 
