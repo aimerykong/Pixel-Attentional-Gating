@@ -2,7 +2,7 @@
 
 For [paper](https://arxiv.org/abs/1805.01556) and [slides](https://www.ics.uci.edu/~skong2/slides/20180514_AIML_UCI.pdf), please refer to our [project page](http://www.ics.uci.edu/~skong2/PAG.html "pixel-attentional-gating")
 
-Our entry to Robust Vision Challenge can be found [here](http://www.robustvision.net/leaderboard.php?benchmark=depth).
+Our entry to Robust Vision Challenge can be found here [depth estimation](http://www.robustvision.net/leaderboard.php?benchmark=depth) and [semantic segmentation](http://www.robustvision.net/leaderboard.php?benchmark=semantic).
 
 
 ![alt text](http://www.ics.uci.edu/~skong2/image/PAG_splashFigure.png "visualization")
@@ -82,7 +82,7 @@ If you find our model/method/dataset useful, please cite our work ([draft at arx
 
 
 
-last update: 06/27/2018
+last update: 06/29/2018
 
 Shu Kong
 
