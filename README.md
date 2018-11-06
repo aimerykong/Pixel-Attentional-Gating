@@ -73,16 +73,16 @@ See also [Recurrent Scene Parsing with Perspective Understanding in-the Loop](ht
 
 If you find our model/method/dataset useful, please cite our work ([draft at arxiv](https://arxiv.org/abs/1805.01556)):
 
-    @inproceedings{kong2018pag,
+    @inproceedings{kong2019pag,
       title={Pixel-wise Attentional Gating for Parsimonious Pixel Labeling},
       author={Kong, Shu and Fowlkes, Charless},
-      booktitle={arxiv 1805.01556},
-      year={2018}
+      booktitle={IEEE Winter Conf. on Applications of Computer Vision (WACV)},
+      year={2019}
     }
 
 
 
-last update: 06/29/2018
+last update: 11/06/2018
 
 Shu Kong
 
