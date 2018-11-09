@@ -1,4 +1,4 @@
-# Pixel-wise Attentional Gating for Parsimonious Pixel Labeling
+# Pixel-wise Attentional Gating for Scene Parsing
 
 For [paper](https://arxiv.org/abs/1805.01556) and [slides](https://www.ics.uci.edu/~skong2/slides/20180514_AIML_UCI.pdf), please refer to our [project page](http://www.ics.uci.edu/~skong2/PAG.html "pixel-attentional-gating")
 
@@ -74,7 +74,7 @@ See also [Recurrent Scene Parsing with Perspective Understanding in-the Loop](ht
 If you find our model/method/dataset useful, please cite our work ([draft at arxiv](https://arxiv.org/abs/1805.01556)):
 
     @inproceedings{kong2019pag,
-      title={Pixel-wise Attentional Gating for Parsimonious Pixel Labeling},
+      title={Pixel-wise Attentional Gating for Scene parsing},
       author={Kong, Shu and Fowlkes, Charless},
       booktitle={IEEE Winter Conf. on Applications of Computer Vision (WACV)},
       year={2019}
